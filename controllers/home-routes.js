@@ -32,3 +32,5 @@ router.get('/', withAuth, async (req, res) => {
 router.get('/settings', withAuth, async (req, res) => {
     
 })
+
+module.exports = router;
