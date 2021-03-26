@@ -9,6 +9,7 @@ router.get('/', withAuth, async (req, res) => {
         const dashboardData = await Post.findAll({
             include: [
                 {
+                    model: User,
                     attributes: ['title', 'post_content', 'date_created'] ,
                 },
             ],
@@ -16,8 +17,7 @@ router.get('/', withAuth, async (req, res) => {
         const posts = dashboardData.map((post) => 
             post.get({ plain: true})
         );
-
-        res.render('login', {
+        res.render('profile', {
             posts,
             loggedIn: req.session.loggedIn,
         });
@@ -27,10 +27,15 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-
+router.get('/login', async (req, res) => {
+    if(req.session.loggedIn) {
+       return res.redirect('/');
+    }
+    res.render('login');
+});
 // Paths to settings
 router.get('/settings', withAuth, async (req, res) => {
     
-})
+});
 
 module.exports = router;
