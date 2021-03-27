@@ -24,10 +24,10 @@ Post.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        user_id: {
+        profile_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'user',
+                model: 'profile',
                 key: 'id',
             },
         },
