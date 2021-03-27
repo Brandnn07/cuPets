@@ -1,0 +1,8 @@
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.card {
+    margin: 18px 8px 8px 8px;
+}

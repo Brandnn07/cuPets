@@ -1,0 +1,18 @@
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    background-color: rgb(204, 204, 25);
+    border-bottom: 2px solid black;
+}
+
+.logo {
+    height:100px;
+    width:100px; 
+    border-radius: 25px 25px 25px 25px;
+}
+
+i {
+    margin-right: 8px;
+}
