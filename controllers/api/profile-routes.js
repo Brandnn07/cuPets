@@ -3,15 +3,25 @@ const { User, Post } = require('../../models');
 const Profile = require('../../models/Profile');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        const newProfile = await Profile.create({
-            ...req.body,
-            user_id: req.session.user_id,
-        });
+        
+        // const stringifyBody = JSON.parse(JSON.stringify(req.body));
+        // console.log(stringifyBody + " hitting this route");
+        console.log(req.body);
+        const newProfile = await Profile.create(req.body);
+        
+        
+        console.log(newProfile, '***');
+        req.session.save(() => {
+            req.session.user_id = newProfile.id;
+            req.session.loggedIn = true;
 
-        res.status(200).json(newProfile);
+            res.status(200).json(newProfile);
+        })
+        
     } catch (err) {
+        console.log(err);
         res.status(400).json(err);
     }
 });
