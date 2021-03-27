@@ -1,0 +1,21 @@
+.logo-box {
+    margin-top: 20px;
+    display:flex;
+    justify-content:flex-start ; 
+    padding:0px;
+  
+}
+.logo {
+    height:100px;
+    width:100px; 
+    border-radius: 25px 25px 25px 25px;
+}
+
+.field {
+    margin-top: 20px;
+}
+.icon {
+    padding: 10px;
+
+    margin-right:10px;
+}
