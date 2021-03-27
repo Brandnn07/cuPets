@@ -30,12 +30,12 @@ const signupv2FormHandler = async (e) => {
     const pet_name = document.querySelector('#petName').value.trim();
     const pet_type = document.querySelector('#petType').value.trim();
     const pet_interest = document.querySelector('#petInterest').value.trim();
-    console.log(name, user_name, description, pet_name, pet_type, pet_interest);
-
-    if (name && user_name && description && pet_name && pet_type && pet_interest) {
+    const profile = {name: name, user_name: user_name, description: description, pet_name: pet_name, pet_type: pet_type, pet_interest: pet_interest }
+    
+    if (profile) {
         const response = await fetch('/api/profile', {
             method: 'POST',
-            body: JSON.stringify({ name, user_name, description, pet_name, pet_type, pet_interest }),
+            body: JSON.stringify({ profile }),
             header: { 'Content-Type': 'application/json' },
         });
         console.log(response);
