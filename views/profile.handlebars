@@ -1,18 +1,26 @@
+{{#if profile.length}}
+{{#each profile as |profile| }}
 <div class="card">
     <div class="card-content">
       <p class="title">
-        Person's description
+        Username placeholder
+        {{profile.user_name}}
       </p>
       <p class="subtitle">
-        Username placeholder
+        Person's description
+        {{profile.description}}
       </p>
       <p class="subtitle">
         Pet_type
+        {{profile.pet_type}}
       </p>
       <p class="subtitle">
         Pet_name
+        {{profile.pet_name}}
       </p>
     </div>
+    {{/each}}
+    {{/if}}
     <footer class="card-footer">
       <p class="card-footer-item">
         <span>
@@ -21,7 +29,7 @@
       </p>
       <p class="card-footer-item">
         <span>
-          <a href=""> Message them!</a>
+          <a href="/new-message"> Message them!</a>
         </span>
       </p>
     </footer>
