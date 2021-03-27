@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User} = require('../models');
+const { Post, Profile} = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
         const dashboardData = await Post.findAll({
             include: [
                 {
-                    model: User,
+                    model: Profile,
                     attributes: ['title', 'post_content', 'date_created'] ,
                 },
             ],
