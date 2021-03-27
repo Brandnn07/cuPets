@@ -38,6 +38,10 @@ router.get('/settings', withAuth, async (req, res) => {
     
 });
 
+router.get('/profile', async (req, res) => {
+    res.render('profile');
+})
+
 router.get('/signup', async (req, res) => {
     res.render('signup');
 });
