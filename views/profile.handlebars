@@ -1,3 +1,41 @@
+{{#if loggedIn}}
+  {{#if profile.length}}
+    {{#each profile as |profile| }}
+      <div class="card">
+        <div class="card-content">
+          <p class="title">
+            Username placeholder
+            {{profile.user_name}}
+          </p>
+          <p class="subtitle">
+            Person's description
+            {{profile.description}}
+          </p>
+          <p class="subtitle">
+            Pet_type
+            {{profile.pet_type}}
+          </p>
+          <p class="subtitle">
+            Pet_name
+            {{profile.pet_name}}
+          </p>
+        </div>
+      </div>
+    {{/each}}
+  {{/if}}
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <span>
+        <a class="is-warning" href=""> I'll pass..</a>
+      </span>
+    </p>
+    <p class="card-footer-item">
+      <span>
+        <a href="/new-message"> Message them!</a>
+      </span>
+    </p>
+  </footer>
+{{/if}}
 <div class="field">
   <label class="label">Current Username: </label>
   <div class="control">

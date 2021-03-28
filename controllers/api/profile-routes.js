@@ -1,47 +1,57 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
-const Profile = require('../../models/Profile');
+// const { Post } = require('../../models');
+const { Profile } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
-    try {
-        console.log(req.body);
-        const newProfile = await Profile.create(req.body);
-        
-        
-        console.log(newProfile, '***');
+    try{
+        const newProfile = await Profile.create({
+            name: req.body.name,
+            user_name: req.body.user_name,
+            email: req.body.email,
+            password: req.body.password,
+            description: req.body.description,
+            pet_name: req.body.pet_name,
+            pet_type: req.body.pet_type,
+            pet_interest: req.body.pet_interest,
+        });
+
         req.session.save(() => {
             req.session.profile_id = newProfile.id;
             req.session.loggedIn = true;
 
-            res.status(200).json(newProfile);
-        })
-        
-    } catch (err) {
+            res.status(200).json(req.body);
+        });
+    }   catch (err) {
         console.log(err);
-        res.status(400).json(err);
+        res.status(500).json(err);
     }
 });
 
 router.post('/login', async (req, res) => {
     try {
+
+        const profileData = await Profile.findOne({ where: { user_name: req.body.username } });
+        console.log(req.body.username)
+
         const profileData = await Profile.findOne({ where: { user_name: req.body.user_name } });
 
         if (!profileData) {
             res
                 .status(400)
-                .json({ message: 'Incorrect email or password, please try again' });
+                .json({ message: 'Incorrect username or password, please try again' });
             return;
         }
 
-        const validPassword = await profileData.checkPassword(req.body.passwpord);
-
+        const validPassword = await profileData.checkPassword(req.body.password);
         if (!validPassword) {
             res
                 .status(400)
-                .json({ message: 'Incorrect email or passwprd, please try again' });
+                .json({ message: 'Incorrect username or password, please try again' });
             return;
         }
+        console.log(profileData)
+        console.log(validPassword)
 
         req.session.save(() => {
             req.session.profile_id = profileData.id;
@@ -51,7 +61,11 @@ router.post('/login', async (req, res) => {
         });
 
     } catch (err) {
+
+        console.log(err)
+
         console.log(err);
+
         res.status(400).json(err);
     }
 });
