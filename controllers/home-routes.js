@@ -6,19 +6,19 @@ const withAuth = require('../utils/auth');
 // Gets info from posts onto dashboard
 router.get('/', withAuth, async (req, res) => {
     try {
-        const dashboardData = await Post.findAll({
-            include: [
-                {
-                    model: Profile,
-                    attributes: ['title', 'post_content', 'date_created'] ,
-                },
-            ],
-        });
-        const posts = dashboardData.map((post) => 
-            post.get({ plain: true})
-        );
+        // const dashboardData = await Post.findAll({
+        //     include: [
+        //         {
+        //             model: Profile,
+        //             attributes: ['title', 'post_content', 'date_created'] ,
+        //         },
+        //     ],
+        // });
+        // const posts = dashboardData.map((post) => 
+        //     post.get({ plain: true})
+        // );
         res.render('profile', {
-            posts,
+            // posts,
             loggedIn: req.session.loggedIn,
         });
     } catch(err) {
@@ -29,7 +29,8 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/login', async (req, res) => {
     if(req.session.loggedIn) {
-       return res.redirect('/');
+        res.redirect('/');
+        return;
     }
     res.render('login');
 });
@@ -39,7 +40,9 @@ router.get('/settings', withAuth, async (req, res) => {
 });
 
 router.get('/profile', async (req, res) => {
-    res.render('profile');
+    res.render('profile', {
+        loggedIn: req.session.loggedIn
+    });
 })
 
 router.get('/signup', async (req, res) => {
