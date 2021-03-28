@@ -35,8 +35,12 @@ router.get('/login', async (req, res) => {
     res.render('login');
 });
 // Paths to settings
-router.get('/settings', withAuth, async (req, res) => {
-    
+router.get('/settings', async (req, res) => {
+    res.render('settings')
+});
+
+router.get('/home', async (req, res) => {
+    res.render('home')
 });
 
 router.get('/profile', async (req, res) => {
@@ -45,8 +49,20 @@ router.get('/profile', async (req, res) => {
     });
 })
 
+router.get('/inbox', async (req, res) => {
+    res.render('inbox');
+})
+
 router.get('/signup', async (req, res) => {
     res.render('signup');
+});
+
+router.get('/feedback', async (req, res) => {
+    res.render('feedback');
+});
+
+router.get('/aboutus', async (req, res) => {
+    res.render('aboutus');
 });
 
 module.exports = router;
