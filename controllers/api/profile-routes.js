@@ -31,10 +31,8 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
 
-        const profileData = await Profile.findOne({ where: { user_name: req.body.username } });
-        console.log(req.body.username)
-
         const profileData = await Profile.findOne({ where: { user_name: req.body.user_name } });
+        console.log(req.body.user_name)
 
         if (!profileData) {
             res
@@ -61,11 +59,7 @@ router.post('/login', async (req, res) => {
         });
 
     } catch (err) {
-
-        console.log(err)
-
         console.log(err);
-
         res.status(400).json(err);
     }
 });
