@@ -1,37 +1,98 @@
-{{#if profile.length}}
-{{#each profile as |profile| }}
-<div class="card">
-    <div class="card-content">
-      <p class="title">
-        Username placeholder
-        {{profile.user_name}}
-      </p>
-      <p class="subtitle">
-        Person's description
-        {{profile.description}}
-      </p>
-      <p class="subtitle">
-        Pet_type
-        {{profile.pet_type}}
-      </p>
-      <p class="subtitle">
-        Pet_name
-        {{profile.pet_name}}
-      </p>
-    </div>
-    {{/each}}
-    {{/if}}
-    <footer class="card-footer">
-      <p class="card-footer-item">
-        <span>
-         <a class="is-warning" href=""> I'll pass..</a>
-        </span>
-      </p>
-      <p class="card-footer-item">
-        <span>
-          <a href="/new-message"> Message them!</a>
-        </span>
-      </p>
-    </footer>
+<div class="field">
+  <label class="label">Current Username: </label>
+  <div class="control">
+    FILLER USERNAME
   </div>
-</body>
+</div>
+
+<div class="field">
+  <label class="label">Current Pet: </label>
+  <div class="control">
+    FILLER PET TYPE AND PET NAME
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Current Preferences: </label>
+  <div class="control">
+    <li>FILLER PREFERENCES</li>
+    <li>FILLER PREFERENCES</li>
+    <li>FILLER PREFERENCES</li>
+    <li>FILLER PREFERENCES</li>
+  </div>
+</div>
+
+
+
+
+<div class="field">
+  <label class="label">New Username</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="Text input">
+  </div>
+</div>
+
+<div class="field">
+          <label class="label">New pet</label>
+          <div class="control">
+            <div class="select">
+              <select id="petType" value="barks">
+                <option>My Pet ...</option>
+                <option>barks</option>
+                <option>meows</option>
+                <option>is small and furry</option>
+                <option>flies</option>
+                <option>has scales</option>
+                <option>swims</option>
+                <option>ribbits </option>
+                <option>is a creepy crawler</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <div class="field">
+        <label class="label">New Pet Name</label>
+        <div class="control">
+          <input id="petName" class="input" type="text" placeholder="What's their name?">
+        </div>
+      </div>
+
+<div class="field">
+          <label class="label">New pet preference</label>
+          <div class="control">
+            <div class="select">
+              <select id="petType" value="barks">
+                <option>My Pet ...</option>
+                <option>barks</option>
+                <option>meows</option>
+                <option>is small and furry</option>
+                <option>flies</option>
+                <option>has scales</option>
+                <option>swims</option>
+                <option>ribbits </option>
+                <option>is a creepy crawler</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          </div>
+        </div>
+
+ <div class="field">
+        <label class="label">New Password</label>
+        <div class="control">
+          <input id="password" class="input" type="password" placeholder="Password">
+        </div>
+      </div>
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-link">Submit</button>
+  </div>
+  <div class="control">
+    <button class="button is-link is-light">Cancel</button>
+  </div>
+</div>
