@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, Profile } = require('../models');
+const Message = require('../models/message');
 const withAuth = require('../utils/auth');
 
 
@@ -80,12 +81,18 @@ router.get('/inbox', async (req, res) => {
             id: req.session.profile_id
         }
     });
-
     const userProfile = JSON.parse(JSON.stringify(profileData));
-
+    const messages = await Message.findAll({
+        where : {
+            user_name: userProfile.user_name
+        }
+    })
+    const userMessages = JSON.parse(JSON.stringify(messages));
+    console.log(messages);
     res.render('inbox', {
         loggedIn: req.session.loggedIn,
-        userProfile
+        userProfile, 
+        messages: userMessages,
     });
 })
 
@@ -122,5 +129,12 @@ router.get('/aboutus', async (req, res) => {
         userProfile
     });
 });
+
+router.get('/message/:user_name', withAuth, async (req, res) => {
+    res.render('message', {
+        loggedIn: req.session.loggedIn,
+        user_name: req.params.user_name
+    });
+})
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 // const { Post } = require('../../models');
 const { Profile } = require('../../models');
+const Message = require('../../models/message');
 const withAuth = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
@@ -27,6 +28,23 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.post('/message', async (req, res) => {
+    console.log(req.body);
+    try {
+        const userInfo = await Profile.findByPk(req.session.profile_id)
+        console.log(userInfo);
+        const newMessage = await Message.create({
+            content: req.body.message,
+            user_name: req.body.user_name,
+            from: userInfo.dataValues.user_name
+        })
+        res.sendStatus(200);
+    }catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
 
 router.post('/login', async (req, res) => {
     try {
