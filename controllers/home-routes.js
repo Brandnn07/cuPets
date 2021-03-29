@@ -1,24 +1,24 @@
 const router = require('express').Router();
-const { Post, User} = require('../models');
+const { Post, Profile} = require('../models');
 const withAuth = require('../utils/auth');
 
 
 // Gets info from posts onto dashboard
 router.get('/', withAuth, async (req, res) => {
     try {
-        const dashboardData = await Post.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['title', 'post_content', 'date_created'] ,
-                },
-            ],
-        });
-        const posts = dashboardData.map((post) => 
-            post.get({ plain: true})
-        );
+        // const dashboardData = await Post.findAll({
+        //     include: [
+        //         {
+        //             model: Profile,
+        //             attributes: ['title', 'post_content', 'date_created'] ,
+        //         },
+        //     ],
+        // });
+        // const posts = dashboardData.map((post) => 
+        //     post.get({ plain: true})
+        // );
         res.render('profile', {
-            posts,
+            // posts,
             loggedIn: req.session.loggedIn,
         });
     } catch(err) {
@@ -29,17 +29,40 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/login', async (req, res) => {
     if(req.session.loggedIn) {
-       return res.redirect('/');
+        res.redirect('/');
+        return;
     }
     res.render('login');
 });
 // Paths to settings
-router.get('/settings', withAuth, async (req, res) => {
-    
+router.get('/settings', async (req, res) => {
+    res.render('settings')
 });
+
+router.get('/home', async (req, res) => {
+    res.render('home')
+});
+
+router.get('/profile', async (req, res) => {
+    res.render('profile', {
+        loggedIn: req.session.loggedIn
+    });
+})
+
+router.get('/inbox', async (req, res) => {
+    res.render('inbox');
+})
 
 router.get('/signup', async (req, res) => {
     res.render('signup');
+});
+
+router.get('/feedback', async (req, res) => {
+    res.render('feedback');
+});
+
+router.get('/aboutus', async (req, res) => {
+    res.render('aboutus');
 });
 
 module.exports = router;

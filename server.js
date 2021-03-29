@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 // Import express-session
 const session = require('express-session');
+require('dotenv').config();
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 // const helpers = require('./utils/helpers');
@@ -12,21 +13,21 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Set up Handlebars.js engine with custom helpers
+const hbs = exphbs.create({ });
+
 const sess = {
     secret: process.env.SECRET,
     cookie: {},
     resave: false,
-    saveUnitialized: true,
+    saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize
     })
-}
+};
 
 // Set up sessions
 app.use(session(sess));
-
-// Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
