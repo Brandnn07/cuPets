@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, Profile } = require('../models');
+const Message = require('../models/message');
 const withAuth = require('../utils/auth');
 
 
@@ -64,28 +65,24 @@ router.get('/profile', async (req, res) => {
     });
 })
 
-// router.get('/profile/:id', async (req, res) => {
-//     try {
-//         const profileData = await Profile.findByPk(req.params.id);
-
-//         res.render('profile')
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
 router.get('/inbox', async (req, res) => {
     const profileData = await Profile.findOne({
         where: {
             id: req.session.profile_id
         }
     });
-
     const userProfile = JSON.parse(JSON.stringify(profileData));
-
+    const messages = await Message.findAll({
+        where : {
+            user_name: userProfile.user_name
+        }
+    })
+    const userMessages = JSON.parse(JSON.stringify(messages));
+    console.log(messages);
     res.render('inbox', {
         loggedIn: req.session.loggedIn,
-        userProfile
+        userProfile, 
+        messages: userMessages,
     });
 })
 
@@ -122,5 +119,12 @@ router.get('/aboutus', async (req, res) => {
         userProfile
     });
 });
+
+router.get('/message/:user_name', withAuth, async (req, res) => {
+    res.render('message', {
+        loggedIn: req.session.loggedIn,
+        user_name: req.params.user_name
+    });
+})
 
 module.exports = router;

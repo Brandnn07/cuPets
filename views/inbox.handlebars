@@ -4,16 +4,20 @@
             <p>Messages</p>
         </div>
         <div class="message-body">
-
+            {{log messages}}
+            {{#each messages}}
+                <p>sender: 
+                    <a href="/message/{{from}}">{{from}}</a>
+                </p>
+                <div>
+                    <p>
+                        message: 
+                    </p>
+                    {{content}}
+                </div>
+            {{/each}}
         </div>
     </article>
-    <article class="message">
-        <div class="message-body">
-            Message Content
-        </div>
-    </article>
-
-
 </div>
 <div class="container">
     <button class="button is-medium">Dashboard</button>
