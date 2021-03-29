@@ -1,37 +1,36 @@
-{{!-- {{#if profile.length}}
-{{#each profile as |profile| }} --}}
+{{#if loggedIn}}
+{{#each userProfile as |userProfile| }}
 <div class="card">
-    <div class="card-content">
-      <p class="title">
-        Username placeholder
-        {{profile.user_name}}
-      </p>
-      <p class="subtitle">
-        Person's description
-        {{profile.description}}
-      </p>
-      <p class="subtitle">
-        Pet_type
-        {{profile.pet_type}}
-      </p>
-      <p class="subtitle">
-        Pet_name
-        {{profile.pet_name}}
-      </p>
+  <div class="card-content">
+    <div class="picture">
+      user picture
     </div>
-    {{!-- {{/each}}
-    {{/if}} --}}
-    <footer class="card-footer">
-      <p class="card-footer-item">
-        <span>
-         <a class="is-warning" href=""> I'll pass..</a>
-        </span>
-      </p>
-      <p class="card-footer-item">
-        <span>
-          <a href="/new-message"> Message them!</a>
-        </span>
-      </p>
-    </footer>
+    <p class="title">
+      This is: {{userProfile.name}}
+    </p>
+    <p class="subtitle">
+      Person's description: {{userProfile.description}}
+    </p>
+    <p class="subtitle">
+      Their pet type: {{userProfile.pet_type}}
+    </p>
+    <p class="subtitle">
+      Their pet name: {{userProfile.pet_name}}
+    </p>
   </div>
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <span>
+        <a class="is-warning" href=""> I'll pass..</a>
+      </span>
+    </p>
+    <p class="card-footer-item">
+      <span>
+        <a href="/new-message"> Message them!</a>
+      </span>
+    </p>
+  </footer>
+</div>
+  {{/each}}
+  {{/if}}
 </body>
