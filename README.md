@@ -10,11 +10,13 @@
 
 ## Description
 ---
-Update Description
-
 Deployed Website: 
 
-![cuPets](*****Include Screenshot here******)
+![cuPets](./public/images/color_cupet_logo.png)
+
+![cuPets](./public/images/cuPets-about.png)
+
+![cuPets](./public/images/cuPets-message.png)
 
 ## Requirements 
 ---
@@ -51,4 +53,12 @@ Any and all improvement suggestions are welcome!
 
 ## Credits
 ---
-Brandon Carter, Eren Ozgur, Haleigh Spurlock, Nelson Escalante 2021
+Brandon Carter (https://github.com/Brandnn07)
+
+Eren Ozgur(https://github.com/erenozgur98)
+
+Haleigh Spurlock (https://github.com/haleighspurlock)
+
+Nelson Escalante (https://github.com/nescalante92) 
+
+&COPY; 2021
