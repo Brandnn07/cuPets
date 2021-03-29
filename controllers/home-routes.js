@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 
 // Gets info from posts onto dashboard
 router.get('/', withAuth, async (req, res) => {
-    if(req.session.loggedIn) {
+    if (req.session.loggedIn) {
         res.redirect('/home');
         return;
     }
@@ -14,7 +14,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.get('/login', async (req, res) => {
-    if(req.session.loggedIn) {
+    if (req.session.loggedIn) {
         res.redirect('/home');
         return;
     }
@@ -37,17 +37,15 @@ router.get('/settings', async (req, res) => {
 });
 
 router.get('/home', async (req, res) => {
-    const profileData = await Profile.findAll({
-        where: {
-            id: req.session.profile_id
-        }
-    });
-
-    const userProfile = JSON.parse(JSON.stringify(profileData));
-
+    const profileData = await Profile.findAll();
+    
+    let profiles = profileData.map((profile) =>
+    profile.get({ plain: true })
+    );
+     
     res.render('home', {
         loggedIn: req.session.loggedIn,
-        userProfile
+        profiles
     });
 });
 
@@ -65,6 +63,16 @@ router.get('/profile', async (req, res) => {
         userProfile
     });
 })
+
+// router.get('/profile/:id', async (req, res) => {
+//     try {
+//         const profileData = await Profile.findByPk(req.params.id);
+
+//         res.render('profile')
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 router.get('/inbox', async (req, res) => {
     const profileData = await Profile.findOne({

@@ -1,21 +1,24 @@
 {{#if loggedIn}}
-{{#each userProfile as |userProfile| }}
+{{#each profiles as |profile| }}
 <div class="card">
   <div class="card-content">
     <div class="picture">
       user picture
     </div>
     <p class="title">
-      This is: {{userProfile.name}}
+      This is: {{profile.name}}
+    </p>
+    <p class="title">
+      Their username is: {{profile.user_name}}
     </p>
     <p class="subtitle">
-      Person's description: {{userProfile.description}}
+      Person's description: {{profile.description}}
     </p>
     <p class="subtitle">
-      Their pet type: {{userProfile.pet_type}}
+      Their pet type: {{profile.pet_type}}
     </p>
     <p class="subtitle">
-      Their pet name: {{userProfile.pet_name}}
+      Their pet name: {{profile.pet_name}}
     </p>
   </div>
   <footer class="card-footer">
@@ -26,12 +29,10 @@
     </p>
     <p class="card-footer-item">
       <span>
-        <a href="/new-message"> Message them!</a>
+        <a href="profile/{{profile.id}}"> Message them!</a>
       </span>
     </p>
   </footer>
 </div>
-  {{/each}}
-  {{/if}}
-  
-</body>
+{{/each}}
+{{/if}}
