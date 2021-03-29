@@ -65,16 +65,6 @@ router.get('/profile', async (req, res) => {
     });
 })
 
-// router.get('/profile/:id', async (req, res) => {
-//     try {
-//         const profileData = await Profile.findByPk(req.params.id);
-
-//         res.render('profile')
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
 router.get('/inbox', async (req, res) => {
     const profileData = await Profile.findOne({
         where: {
