@@ -82,18 +82,7 @@ router.get('/inbox', async (req, res) => {
 })
 
 router.get('/signup', async (req, res) => {
-    const profileData = await Profile.findOne({
-        where: {
-            id: req.session.profile_id
-        }
-    });
-
-    const userProfile = JSON.parse(JSON.stringify(profileData));
-
-    res.render('signup', {
-        loggedIn: req.session.loggedIn,
-        userProfile
-    });
+    res.render('signup');
 });
 
 router.get('/feedback', async (req, res) => {
