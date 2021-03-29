@@ -4,7 +4,7 @@ const { Profile } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
-    try{
+    try {
         const newProfile = await Profile.create({
             name: req.body.name,
             user_name: req.body.user_name,
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 
             res.status(200).json(req.body);
         });
-    }   catch (err) {
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -63,6 +63,23 @@ router.post('/login', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+// router.get('/one', withAuth, async (req, res) => {
+//     try {
+//         const profileData = await Profile.findOne({
+//             where: {
+//                 id: req.session.profile_id
+//             }
+//         });
+
+//         const userProfile = JSON.parse(JSON.stringify(profileData));
+
+//         res.status(200).json(userProfile);
+
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 router.delete('/:id', withAuth, async (req, res) => {
     try {

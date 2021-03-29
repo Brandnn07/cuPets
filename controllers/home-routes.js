@@ -1,68 +1,129 @@
 const router = require('express').Router();
-const { Post, Profile} = require('../models');
+const { Post, Profile } = require('../models');
 const withAuth = require('../utils/auth');
 
 
 // Gets info from posts onto dashboard
 router.get('/', withAuth, async (req, res) => {
-    try {
-        // const dashboardData = await Post.findAll({
-        //     include: [
-        //         {
-        //             model: Profile,
-        //             attributes: ['title', 'post_content', 'date_created'] ,
-        //         },
-        //     ],
-        // });
-        // const posts = dashboardData.map((post) => 
-        //     post.get({ plain: true})
-        // );
-        res.render('profile', {
-            // posts,
-            loggedIn: req.session.loggedIn,
-        });
-    } catch(err) {
-        console.log(err);
-        res.status(500).json(err);
+    if(req.session.loggedIn) {
+        res.redirect('/home');
+        return;
     }
+
+    res.render('login');
 });
 
 router.get('/login', async (req, res) => {
     if(req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect('/home');
         return;
     }
     res.render('login');
 });
 // Paths to settings
 router.get('/settings', async (req, res) => {
-    res.render('settings')
+    const profileData = await Profile.findOne({
+        where: {
+            id: req.session.profile_id
+        }
+    });
+
+    const userProfile = JSON.parse(JSON.stringify(profileData));
+
+    res.render('settings', {
+        loggedIn: req.session.loggedIn,
+        userProfile
+    });
 });
 
 router.get('/home', async (req, res) => {
-    res.render('home')
+    const profileData = await Profile.findAll({
+        where: {
+            id: req.session.profile_id
+        }
+    });
+
+    const userProfile = JSON.parse(JSON.stringify(profileData));
+
+    res.render('home', {
+        loggedIn: req.session.loggedIn,
+        userProfile
+    });
 });
 
 router.get('/profile', async (req, res) => {
+    const profileData = await Profile.findOne({
+        where: {
+            id: req.session.profile_id
+        }
+    });
+
+    const userProfile = JSON.parse(JSON.stringify(profileData));
+
     res.render('profile', {
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        userProfile
     });
 })
 
 router.get('/inbox', async (req, res) => {
-    res.render('inbox');
+    const profileData = await Profile.findOne({
+        where: {
+            id: req.session.profile_id
+        }
+    });
+
+    const userProfile = JSON.parse(JSON.stringify(profileData));
+
+    res.render('inbox', {
+        loggedIn: req.session.loggedIn,
+        userProfile
+    });
 })
 
 router.get('/signup', async (req, res) => {
-    res.render('signup');
+    const profileData = await Profile.findOne({
+        where: {
+            id: req.session.profile_id
+        }
+    });
+
+    const userProfile = JSON.parse(JSON.stringify(profileData));
+
+    res.render('signup', {
+        loggedIn: req.session.loggedIn,
+        userProfile
+    });
 });
 
 router.get('/feedback', async (req, res) => {
-    res.render('feedback');
+    const profileData = await Profile.findOne({
+        where: {
+            id: req.session.profile_id
+        }
+    });
+
+    const userProfile = JSON.parse(JSON.stringify(profileData));
+
+    res.render('feedback', {
+        loggedIn: req.session.loggedIn,
+        userProfile
+    });
 });
 
 router.get('/aboutus', async (req, res) => {
-    res.render('aboutus');
+    const profileData = await Profile.findOne({
+        where: {
+            id: req.session.profile_id
+        }
+    });
+
+    const userProfile = JSON.parse(JSON.stringify(profileData));
+
+    res.render('aboutus', {
+        loggedIn: req.session.loggedIn,
+        userProfile
+    });
 });
 
 module.exports = router;
