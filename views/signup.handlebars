@@ -1,73 +1,86 @@
-<form class="box">
-      <div class="field">
-          <p class="is-size-4">Sign Up</p>
-        <label class="label">User Name</label>
-        <div class="control">
-          <input id="username" class="input" type="text" placeholder="User Name" value="test">
-        </div>
-      </div>
 
-      <div class="field">
-          <label class="label">Name</label>
-          <div class="control">
-            <input id="name" class="input" type="text" placeholder="Name" value="test">
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Description</label>
-          <div class="control">
-            <input id="description" class="input" type="text" placeholder="Tell us about yourself!" value="test">
-          </div>
-        </div>
-
-      <div class="field">
-          <label class="label">Email</label>
-          <div class="control">
-            <input id="email" class="input" type="email" placeholder="Email" value="test@test.com">
-          </div>
-        </div>
-    
-      <div class="field">
-        <label class="label">Password</label>
-        <div class="control">
-          <input id="password" class="input" type="password" placeholder="Password" value="testtest">
-        </div>
-      </div>
-
-<div class="field">
-          <label class="label">What type of Pet do you Have?</label>
-          <div class="control">
-            <div class="select">
-              <select id="petType" value="barks">
-                <option>My Pet ...</option>
-                <option>barks</option>
-                <option>meows</option>
-                <option>is small and furry</option>
-                <option>flies</option>
-                <option>has scales</option>
-                <option>swims</option>
-                <option>ribbits </option>
-                <option>is a creepy crawler</option>
-                <option>Other</option>
-              </select>
+<!--Log In--->
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <form class="box">
+          <div class="field">
+            <p class="is-size-4">Sign Up</p>
+            <label class="label">User Name</label>
+            <div class="control">
+              <input class="input" type="email" placeholder="User Name">
             </div>
           </div>
-          </div>
-        </div>
 
-        <div class="field">
-        <label class="label">Pet Name</label>
-        <div class="control">
-          <input id="petName" class="input" type="text" placeholder="What's their name?" value="test">
-        </div>
-      </div>
-        <!---Animal Dropdown for Choosing what Pet you are looking fo--->
-<div class="field">
-          <label class="label">What type of Pets are you looking for?</label>
-          <div class="control">
-            <div class="select">
-                <select id="petInterest" value="bark">
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="email" placeholder="Name">
+            </div>
+
+          </div>
+
+
+          <div class="field">
+            <label class="label">Description</label>
+            <div class="control">
+              <input class="input" type="email" placeholder="Tell us about yourself!">
+            </div>
+
+          </div>
+
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input class="input" type="email" placeholder="Email">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input class="input" type="password" placeholder="Password">
+
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">What type of Pet do you Have?</label>
+            <div class="control">
+              <div class="select">
+                <select>
+                  <option>My Pet ...</option>
+                  <option>barks</option>
+                  <option>meows</option>
+                  <option>is small and furry</option>
+                  <option>flies</option>
+                  <option>has scales</option>
+                  <option>swims</option>
+                  <option>ribbits </option>
+                  <option>is a creepy crawler</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="field">
+            <label class="label">Pet Name</label>
+            <div class="control">
+              <input class="input" type="password" placeholder="What's their name?">
+            </div>
+          </div>
+          <!-------------------------------Animal Dropdown for Choosing what Pet you are looking for------------------->
+          <div class="field">
+            <label class="label">What type of Pets are you looking for?</label>
+            <div class="control">
+              <div class="select">
+                <select>
+
                   <option>I'm interested in Pets that...</option>
                   <option>bark</option>
                   <option>meow</option>
@@ -80,11 +93,130 @@
                   <option>Other</option>
                 </select>
               </div>
+            </div>
           </div>
-          </div>
-        </div>
-    
-      <button id="signupBtn" class="button is-warning" type='submit'>Sign Up</button>
+
+
+          <button class="button is-warning">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+<script src="./js/login.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <form class="box">
+  <div class="field">
+    <p class="is-size-4">Sign Up</p>
+    <label class="label">User Name</label>
+    <div class="control">
+      <input class="input" type="email" placeholder="User Name">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input class="input" type="email" placeholder="Name">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Description</label>
+    <div class="control">
+      <input class="input" type="email" placeholder="Tell us about yourself!">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control">
+      <input class="input" type="email" placeholder="Email">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Password</label>
+    <div class="control">
+      <input class="input" type="password" placeholder="Password">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">What type of Pet do you Have?</label>
+    <div class="control">
+      <div class="select">
+        <select>
+          <option>My Pet ...</option>
+          <option>barks</option>
+          <option>meows</option>
+          <option>is small and furry</option>
+          <option>flies</option>
+          <option>has scales</option>
+          <option>swims</option>
+          <option>ribbits </option>
+          <option>is a creepy crawler</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Pet Name</label>
+    <div class="control">
+      <input class="input" type="password" placeholder="What's their name?">
+    </div>
+  </div>
+  <!-------------------------------Animal Dropdown for Choosing what Pet you are looking for------------------->
+  <div class="field">
+    <label class="label">What type of Pets are you looking for?</label>
+    <div class="control">
+      <div class="select">
+        <select>
+          <option>I'm interested in Pets that...</option>
+          <option>bark</option>
+          <option>meow</option>
+          <option>are small and furry</option>
+          <option>fly</option>
+          <option>have scales</option>
+          <option>swim</option>
+          <option>ribbit</option>
+          <option>are creepy crawlers</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <button class="button is-warning">Sign Up</button>
+
       <p>Already have an account? <a href='/login'>Click here</a> to log in!</p>
     </form>
     <script src="./js/signup.js"></script>
+
