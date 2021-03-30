@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
             pet_name: req.body.pet_name,
             pet_type: req.body.pet_type,
             pet_interest: req.body.pet_interest,
-            pet_url: `/assets/${req.body.pet_type}/${Math.floor((Math.random() * 3) + 1)}.jpg`
+            pet_url: `/assets/${req.body.pet_type}/${Math.floor((Math.random() * 5) + 1)}.jpg`
         });
 
         req.session.save(() => {

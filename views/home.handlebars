@@ -3,19 +3,19 @@
 <div class="card">
   <div class="card-content">
     <div class="picture">
-      user picture
+      <img class="image" src=".{{profile.pet_url}}" alt="{{profile.pet_name}}">
     </div>
     <p class="title">
-      This is: {{profile.name}}
-    </p>
-    <p class="title">
-      Their username is: {{profile.user_name}}
+      {{profile.name}}
     </p>
     <p class="subtitle">
-      Person's description: {{profile.description}}
+      @{{profile.user_name}}
     </p>
     <p class="subtitle">
-      Their pet type: {{profile.pet_type}}
+      Description: {{profile.description}}
+    </p>
+    <p class="subtitle">
+      Their pet {{profile.pet_type}}
     </p>
     <p class="subtitle">
       Their pet name: {{profile.pet_name}}
