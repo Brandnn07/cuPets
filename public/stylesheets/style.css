@@ -25,7 +25,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* background-color: #F5E6CC; */
+    background-color: #F5E6CC;
 }
 
 main {
@@ -106,10 +106,10 @@ i {
     box-shadow: 0 0 20px 5px rgba(36, 36, 36, 0.5); 
     background-color:#ffce73;
 }
-.container {
+/* .container {
     padding-left: 200px;
     padding-right: 200px;
-}
+} */
 
 .picture {
     display: flex;
