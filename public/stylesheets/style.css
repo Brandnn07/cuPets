@@ -6,6 +6,10 @@ html {
     padding: 0;
 }
 
+html {
+    min-height: 100vh;
+}
+
 .block {
     display: flex;
     justify-content: center;
@@ -28,9 +32,10 @@ body {
     justify-content: center;
     /* align-items: center; */
     flex-direction: column;
-    /* background-color: #F5E6CC; */
-    min-width: 100vw;
+    background-color: #F5E6CC;
     min-height: 100vh;
+    min-width: 100vw;
+
 }
 
 main {
@@ -112,10 +117,10 @@ i {
     box-shadow: 0 0 20px 5px rgba(36, 36, 36, 0.5); 
     background-color:#ffce73;
 }
-.container {
+/* .container {
     padding-left: 200px;
     padding-right: 200px;
-}
+} */
 
 .picture {
     display: flex;
@@ -141,14 +146,16 @@ i {
 }
 
 
-@media screen and (max-width: 1200px) {
-    body {
-        width: 1200px;
-    }
+@media screen and (max-width: 1048px) {
+   .block {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+   }
 }
 
-@media screen and (max-width: 790px) {
+/* @media screen and (max-width: 790px) {
     body {
         width: 1300px;
     }
-}
+} */

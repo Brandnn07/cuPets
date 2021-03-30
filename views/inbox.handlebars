@@ -1,25 +1,58 @@
-<div class="container">
-    <article class="message name">
-        <div class="message-header">
+<section class="section">
+    <div class="container">
+        <div class="columns" id="border">
+            <div class="column">
+                <form class="box is-fluid" id="message_box">
+                    <article class="message-name">
+                        <div class="message-header" id="message_header">
+                            <p>Messages</p>
+                        </div>
+                        <div class="message-body">
+                {{#each messages}}
+                            <p>Sender:
+                                <a href="/message/{{from}}">{{from}}</a>
+                            </p>
+                            <div>
+                                <p>
+                                    Message:
+                                </p>
+                                {{content}}
+                            </div>
+                {{/each}}
+                        </div>
+                    </article>
+                </form>
+                <!-- <div class="container" id="message_btn">
+                        <button class="button is-medium" id="dash_btn">Dashboard</button>
+                        <button class="button is-medium" id="settings_btn">Settings</button>
+                    </div> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+{{!-- <div class="container">
+    <article class="message name block">
+        <div class="message-header block">
             <p>Messages</p>
         </div>
-        <div class="message-body">
+        <div class="message-body block">
             {{log messages}}
             {{#each messages}}
-                <p>sender: 
-                    <a href="/message/{{from}}">{{from}}</a>
+            <p>sender:
+                <a href="/message/{{from}}">{{from}}</a>
+            </p>
+            <div>
+                <p>
+                    message:
                 </p>
-                <div>
-                    <p>
-                        message: 
-                    </p>
-                    {{content}}
-                </div>
+                {{content}}
+            </div>
             {{/each}}
         </div>
     </article>
-</div>
-<div class="container">
+</div> --}}
+{{!-- <div class="container">
     <button class="button is-medium">Dashboard</button>
     <button class="button is-medium">Settings</button>
-</div>
+</div> --}}
