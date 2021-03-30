@@ -1,36 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .block {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 12px;
-
-    background-color:#6c648B;
+    background-color:#FFB48F;
     border-bottom: 5px solid aquamarine;
-    /* box-shadow: ; */
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-family: 'Lobster', cursive;
+    /* min-width: 1100px; */
+}
+
+button {
+    font-family: 'Lobster', cursive;
 }
 
 body {
-    background-color: #DFDCE3;
-    min-height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: #F5E6CC; */
+}
 
-    background-color: rgb(204, 204, 25);
-    border-bottom: 2px solid black;
+main {
+    font-family: 'Pacifico', cursive;
+    font-size: 12px;
+    background-color: #F5E6CC;
+}
+
+h1 {
+    margin:5px;
+    padding:20px;
+}
+
+.cupets {
+    color:#FFF;
+    font-size:xx-large;
+    font-weight: 500;
 
 }
 
-.logo {
+.logo-box {
+    margin:5px;
+    padding:10px;
+    display: flex;
+    justify-content: flex-start;
     height:100px;
-    width:100px; 
-    border-radius: 25px 25px 25px 25px;
+    width: 100px;
 }
-.fas {
-    margin-right: 8px;
-    color: #F7C331;
-}
-.navbar_item {
-    color:#F7C331;
 
+i {
+    margin-right: 12px;
 }
+
+#home_icon {
+    color:red;
+}
+#about_icon {
+    color:#F7882F;
+}
+#profile_icon {
+    color:yellow;
+}
+#inbox_icon {
+    color:rgb(45, 189, 45);
+}
+#settings_icon {
+    color:rgb(54, 103, 209);
+}
+#feedback_icon {
+    color:#A64AC9;
+}
+/* .navbar_item {
+    color:grey;    
+} */
+
 .navbar_end {
     justify-content:flex-end;
     align-items: center;
@@ -61,4 +111,38 @@ body {
     padding-right: 200px;
 }
 
+.picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+}
 
+.image {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 30px 30px 30px 30px;
+}
+
+.card {
+    /* min-width: 1200px; */
+    margin: 36px;
+    text-align: center;
+}
+
+.card-content {
+    text-align: center;
+}
+
+
+@media screen and (max-width: 1200px) {
+    body {
+        width: 1200px;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    body {
+        width: 1300px;
+    }
+}

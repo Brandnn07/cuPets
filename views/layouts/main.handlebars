@@ -1,86 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/stylesheets/style.css">
   <title>cuPets</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
     integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/style.css">
 
 </head>
 
 <body>
-    <!-------------NavBar---------->
-    <div class="block">
-        <div class="logo-box is-small">
-          <img src="/images/color_cupet_logo.png" alt="cupets logo" class="logo" />
+  <!-------------NavBar---------->
+  <div class="block">
+    <h1 class="cupets">cuPets</h1>
+    <div class="logo-box is-small">
+      <img src="images/new_cupets_logo01.png" alt="cupets logo" class="logo" />
+    </div>
+
+
+    {{!-- <div class="navbar-start"> --}}
+      <a href="/home" class="navbar-item">
+        <i class="fas fa-home" id="home_icon"></i>
+        Home
+      </a>
+      <a href="/aboutus" class="navbar-item">
+        <i class="fas fa-smile-beam" id="about_icon"></i>
+        About Us
+      </a>
+      <a href="/profile" class="navbar-item">
+        <i class="fas fa-user-circle" id="profile_icon"></i>
+        Profile
+      </a>
+      <a href="/inbox" class="navbar-item">
+        <i class="fas fa-inbox" id="inbox_icon"></i>
+        Inbox
+      </a>
+      <a href="/settings" class="navbar-item">
+        <i class="fas fa-cog" id="settings_icon"></i>
+        Settings
+      </a>
+      <a href="/feedback" class="navbar-item">
+        <i class="fas fa-comment-dots" id="feedback_icon"></i>
+        Give us Feedback
+      </a>
+      {{!--
+    </div> --}}
+    <div class="navbar_end">
+      <div class="navbar_item">
+        <div class="buttons">
+
+          {{#if loggedIn}}
+          <a id="logoutBtn" class="button is-warning">
+            <strong>Log Out</strong>
+          </a>
+          {{/if}}
         </div>
-
-
-        <div class="navbar-start">
-          <a href="/home" class="navbar-item">
-            <i class="fas fa-home"></i>
-            Home
-          </a>
-           <a href="/aboutus" class="navbar-item">
-            <i class="fas fa-smile-beam"></i>
-            About Us
-          </a>
-           <a href="/profile" class="navbar-item">
-            <i class="fas fa-user-circle"></i>
-            Profile
-          </a>
-          <a href="/inbox" class="navbar-item">
-            <i class="fas fa-inbox"></i>
-            Inbox
-          </a>
-          <a href="/settings" class="navbar-item">
-            <i class="fas fa-cog"></i>
-            Settings
-          </a>
-          <a href="/feedback" class="navbar-item">
-            <i class="fas fa-comment-dots"></i>
-            Give us Feedback
-          </a>
-        </div>
-
-        <div id="searchButton" class="field has-addons ">
-          <div class="control">
-            <input class="input" id="searchBtn" type="text" placeholder="Search a User">
-          </div>
-          <div class="control">
-            <a class="button is-warning">
-              Search
-            </a>
-          </div>
-        </div>
-
-        <div class="navbar_end">
-          <div class="navbar_item">
-            <div class="buttons">
-
-              {{#if loggedIn}}
-              <a id="logoutBtn" class="button is-warning">
-                  <strong>Log Out</strong>
-              </a>
-              {{/if}}
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
   </div>
 
+  <main>
     {{{ body }}}
+  </main>
 
-    {{#if loggedIn}}
-      <script src="/js/logout.js"></script>
-    {{/if}}
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 
-
-
-</html>
 
 </body>
 </html>

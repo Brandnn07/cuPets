@@ -55,6 +55,10 @@ Profile.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        pet_url: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     },
     {
         hooks: {
