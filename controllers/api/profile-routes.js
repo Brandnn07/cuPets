@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { Profile, Message } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newProfile = await Profile.create({
             name: req.body.name,
@@ -45,7 +45,7 @@ router.post('/message', async (req, res) => {
     }
 })
 
-router.post('/login', async (req, res) => {
+router.post('/login', withAuth, async (req, res) => {
     try {
 
         const profileData = await Profile.findOne({ where: { user_name: req.body.user_name } });
