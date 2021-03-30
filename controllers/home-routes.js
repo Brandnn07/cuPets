@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { Post, Profile } = require('../models');
-const Message = require('../models/message');
+const { Post, Profile, Message } = require('../models');
 const withAuth = require('../utils/auth');
 
 
