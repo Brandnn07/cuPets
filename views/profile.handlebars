@@ -14,9 +14,6 @@
 </div>
 <div class="card">
   <div class="card-content">
-    <div class="picture">
-      user picture
-    </div>
     <div class="title">
       Hey I'm {{userProfile.name}}!
     </div>
@@ -32,7 +29,7 @@
 <div class="card">
   <div class="card-content">
     <div class="picture">
-      pet picture
+      <img src=".{{userProfile.pet_url}}" alt="{{userProfile.pet_name}}">
     </div>
     <p class="subtitle">
       Their name is: {{userProfile.pet_name}}!
