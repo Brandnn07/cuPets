@@ -1,11 +1,27 @@
-<form id="messageForm" data-user="{{user_name}}">
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <form class="box">
+                    <form id="messageForm" data-user="{{user_name}}">
+                        <input type="text" id="messageContent">
+                        <button type="submit">Submit</button>
+                    </form>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{!-- <form id="messageForm" data-user="{{user_name}}">
     <input type="text" id="messageContent">
     <button type="submit">Submit</button>
-</form>
+</form> --}}
 <script>
     const form = document.querySelector('#messageForm')
 
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', async function (e) {
         e.preventDefault();
         const message = document.querySelector('#messageContent').value.trim();
         const username = e.target.getAttribute('data-user');

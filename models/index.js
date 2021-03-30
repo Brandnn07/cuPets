@@ -1,6 +1,7 @@
 // index models
 const Post = require ('./Post');
 const Profile = require('./Profile');
+const Message = require('./Message')
 
 Post.belongsTo(Profile, {
     foreignKey: 'profile_id'
@@ -11,4 +12,4 @@ Profile.hasMany(Post, {
 });
 
 
-module.exports = { Post, Profile };
+module.exports = { Post, Profile, Message };
