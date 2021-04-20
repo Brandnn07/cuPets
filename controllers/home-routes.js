@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, Profile, Message } = require('../models');
 const withAuth = require('../utils/auth');
 
+
 // Gets info from posts onto dashboard
 router.get('/', withAuth, async (req, res) => {
     if (req.session.loggedIn) {
